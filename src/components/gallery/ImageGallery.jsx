@@ -26,7 +26,7 @@ export default function ImageGallery() {
   };
 
 
-
+   // Fetch search results
    const searchImage = async () => {
     if (!searchTerm.trim()) return;
     try {
