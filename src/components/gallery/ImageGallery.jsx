@@ -10,13 +10,13 @@ export default function ImageGallery() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
 
-
+let API_KEY = "VP29sp0n1JS84DgIhIwO35HLaMjxqWN9KAbNK8ByhU1hZOzgcIkD9ux3";
   const perPage = 15;
 
   const fetchImages = async (page) => {
     try {
       const response = await axios.get(`https://api.pexels.com/v1/curated?page=${page}&per_page=${perPage}`, {
-        headers: { Authorization:  import.meta.env.VITE_API_KEY },
+        headers: { Authorization:  API_KEY },
       });
 
       setImages((prevImages) => [...prevImages, ...response.data.photos]);
@@ -33,7 +33,7 @@ export default function ImageGallery() {
       const response = await axios.get(
         `https://api.pexels.com/v1/search?query=${searchTerm}&page=1&per_page=${perPage}`,
         {
-          headers: { Authorization:  import.meta.env.VITE_API_KEY },
+          headers: { Authorization: API_KEY },
         }
       );
       setImages(response.data.photos);
