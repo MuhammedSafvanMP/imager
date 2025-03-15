@@ -12,7 +12,7 @@ export default function VideoGallery() {
   const videoRefs = useRef({});
 
   const perPage = 15;
-
+let API_KEY = "VP29sp0n1JS84DgIhIwO35HLaMjxqWN9KAbNK8ByhU1hZOzgcIkD9ux3";
 
   // Fetch popular videos
   const fetchVideos = async (page) => {
@@ -20,7 +20,7 @@ export default function VideoGallery() {
       const response = await axios.get(
         `https://api.pexels.com/videos/popular?page=${page}&per_page=${perPage}`,
         {
-          headers: { Authorization: import.meta.env.VITE_API_KEY },
+          headers: { Authorization: API_KEY },
         }
       );
       setVideos((prevVideos) =>
@@ -38,7 +38,7 @@ export default function VideoGallery() {
       const response = await axios.get(
         `https://api.pexels.com/videos/search?query=${searchTerm}&page=1&per_page=${perPage}`,
         {
-          headers: { Authorization:  import.meta.env.VITE_API_KEY },
+          headers: { Authorization:  API_KEY },
         }
       );
       setVideos(response.data.videos); 
