@@ -24,7 +24,7 @@ export default function VideoGallery() {
         }
       );
       setVideos((prevVideos) =>
-        page === 1 ? response.data.videos : [...prevVideos, ...response.data.videos]
+        page === 1 ? response?.data.videos : [...prevVideos, ...response.data.videos]
       );
     } catch (error) {
       console.error("Error fetching videos:", error);
